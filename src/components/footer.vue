@@ -27,14 +27,16 @@ export default {
   },
   methods: {
     changeHandler (label) {
+        if(label==this.tabs[2].label){
+            this.$router.push({path:'/mine',query:{name:label}})
+        }
+        //如果是最高管理员只有我的
+        if(this.$store.state.userInfo.permission==1)return
         if(label==this.tabs[0].label){
             this.$router.push({path:'/task',query:{name:label}})
         }
         if(label==this.tabs[1].label){
             this.$router.push({path:'/project',query:{name:label}})
-        }
-        if(label==this.tabs[2].label){
-            this.$router.push({path:'/mine',query:{name:label}})
         }
     }
   }

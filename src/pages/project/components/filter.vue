@@ -1,5 +1,6 @@
 <template>
     <div class="filterbox" v-show="flag">
+        <div class="modal" @click="fncancel"></div>
         <div class="f_content">
             <cube-checkbox-group v-model="checkList" :options="checkListoptions" :horizontal="true" shape="square"/>
             <p>时间</p>
@@ -97,14 +98,19 @@ export default {
             // }).show()
         },
         fnsuccess(){
-            // this.flag = false;
+            this.fncancel();
+        },
+        fncancel(){
+            this.flag = false;
         }
     },
     watch:{
-        'filterShow':(val)=>{
-            console.log(val);
-            
-            this.flag = val;
+        // 'filterShow':(val)=>{
+        //                 this.flag = val==true?true:true;//为啥不正确
+
+        // }
+        filterShow(val){
+            this.flag = val==true?true:true;
         }
     }
 }
@@ -121,6 +127,11 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 9;
+    display: flex;
+    .modal{
+        width: 30%;
+        height: 100%;
+    }
 
 }
 .f_content{
@@ -135,6 +146,10 @@ export default {
         line-height: .4rem;
     }
     
+}
+@keyframes drive { 
+    0% { transform: translateX(400px); } 
+    100% { transform: translateX(0px); } 
 }
 .filterTimebox{
     display: flex;
@@ -156,10 +171,6 @@ export default {
 .cube-checker-item{
     margin-bottom: .2rem;
     border: 1px solid #ccc;
-}
-@keyframes drive { 
-    0% { transform: translateX(400px); } 
-    100% { transform: translateX(0px); } 
 }
 .fbtnbox{
     display: flex;

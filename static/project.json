@@ -1,0 +1,64 @@
+[
+    {
+        "projectName":"公司后台管理",
+        "id":1,
+        "projectUser":"小鱼儿",
+        "projectUserid":1,
+        "timeSatrt":"2019/3/4",
+        "timeEnd":"2019/3/9",
+        "description":"这是一个大项目，小鱼儿负责",
+        "state":1,
+        "degree": 1,
+        "priority":1,
+        "schedule": "10%",
+        "projectUsers":[
+            {
+                "name":"小鱼儿",
+                "id":1,
+                "isResponsibility": true
+            },
+            {
+                "name":"派大星",
+                "id":2,
+                "isResponsibility": false
+            },
+            {
+                "name":"海绵宝宝",
+                "id":3,
+                "isResponsibility": false
+            }
+        ],
+        "children":[
+            {
+                "childTaskName":"权限管理",
+                "id":"1",
+                "childTaskUser":"小鱼儿",
+                "childTaskUserid":1,
+                "timeSatrt":"2019/3/4",
+                "timeEnd":"2019/3/9",
+                "description":"这是一个子单元：权限管理",
+                "state":"进行中",
+                "degree": "中",
+                "priority":"1级",
+                "schedule": "10%",
+                "childTaskUsers":[
+                    {
+                        "name":"小鱼儿",
+                        "id":1,
+                        "isResponsibility": true
+                    },
+                    {
+                        "name":"派大星",
+                        "id":2,
+                        "isResponsibility": false
+                    },
+                    {
+                        "name":"海绵宝宝",
+                        "id":3,
+                        "isResponsibility": false
+                    }
+                ]
+            }
+        ]
+    }
+]

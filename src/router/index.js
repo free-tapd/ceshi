@@ -5,8 +5,10 @@ import projectuser from '@/components/projectuser'
 import registered from '@/pages/login/registered'
 import login from '@/pages/login/login'
 import mine from '@/pages/mine/mine'
+import editimg from '@/pages/mine/editimg/editimg'
 import project from '@/pages/project/project'
 import createproject from '@/pages/project/createproject/createproject'
+import projectList from '@/pages/project/projectList/projectList'
 import task from '@/pages/task/task'
 Vue.use(Router)
 
@@ -39,6 +41,11 @@ export default new Router({
       component: mine
     },
     {
+      path: '/editimg',
+      name: 'editimg',
+      component: editimg
+    },
+    {
       path: '/project',
       name: 'project',
       component: project
@@ -47,6 +54,10 @@ export default new Router({
       path: '/createproject',
       name: 'createproject',
       component: createproject
+    },{
+      path: '/projectList',
+      name: 'projectList',
+      component: projectList
     },
     {
       path: '/task',

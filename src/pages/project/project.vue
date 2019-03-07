@@ -5,12 +5,18 @@
                     <div class="sou">
                         <input v-model="projectName" />     
                         <div class="soubtn">搜索</div>               
-                        <div class="filter" @click="filterShow=true"><i class="iconfont iconguolv"></i>过滤{{filterShow}}</div>
+                        <div class="filter" @click="filterShow=!filterShow"><i class="iconfont iconguolv"></i>过滤</div>
                     </div>
                     <filterBar :filterShow="filterShow"></filterBar>
                     <ul class="projectList">
-                        <li><small>扫</small> <span>扫仙科技</span> </li>
-                        <li><router-link :to="{path:'/createproject'}"> <i class="iconfont iconhao"></i>创建项目</router-link></li>
+                        <router-link v-for="item in projectdata" :key="item.id" :to="{path:'/projectList',query:{id:item.id}}">
+                            <li>
+                                <small>{{item.projectNameslice}}</small> 
+                                <span>{{item.projectName}}</span> 
+                               <router-link :to="{path:'/createproject',query:{id:item.id}}"><i class="iconfont iconxiangqing xiangqing " ></i></router-link>
+                            </li>
+                        </router-link>
+                        <router-link :to="{path:'/createproject'}"><li> <i class="iconfont iconhao"></i>创建项目</li></router-link>
                     </ul>
             </div>
         </div>
@@ -24,8 +30,17 @@ export default {
     data(){
         return{
             projectName: '',
-            filterShow: false
+            filterShow: false,
+            projectdata:[]
         }
+    },
+    mounted(){
+        this.$store.state.projectdata.map(v=>{
+            v.projectNameslice = v.projectName.slice(0,1)
+        })
+        this.projectdata = this.$store.state.projectdata;
+    },
+    methods:{
     },
     components:{
         Footer,
@@ -83,6 +98,10 @@ export default {
         font-size: 27px;
         padding: 0 .12rem;
         color: @primary-color;
+    }
+    .xiangqing{
+        font-size: 19px;
+        margin: 0 .1rem;
     }
     li{
         width: 100%;

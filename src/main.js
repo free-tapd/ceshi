@@ -12,6 +12,7 @@ import {
   Tip,
   Toolbar,
   TabBar,
+  // TabPanel,
   TabPanels,
   // form
   Checkbox,
@@ -57,6 +58,7 @@ Vue.use(Loading)
 Vue.use(Tip)
 Vue.use(Toolbar)
 Vue.use(TabBar)
+// Vue.use(TabPanel)
 Vue.use(TabPanels)
 Vue.use(Checkbox)
 Vue.use(Checker)
@@ -94,10 +96,18 @@ Vue.use(RecycleList)
 Vue.config.productionTip = false
 
 import './assets/public.css';
+import $ from 'jquery'
+import axios from 'axios'
+Vue.prototype.$http = axios;
+import store from './store'
+
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  $,
+  store,
   template: '<App/>',
   components: { App }
 })

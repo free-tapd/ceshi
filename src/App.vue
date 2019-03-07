@@ -7,7 +7,21 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data(){
+    return{
+      projectdata:[],
+      userInfo: {}
+    }
+  },
+  mounted(){
+    this.$http.get('http://192.168.0.108:8080/static/project.json',{})
+      .then((data)=>{
+          this.projectdata=data.data;
+          this.$store.dispatch('actionsSetProjectdata',this.projectdata);
+          console.log(this.$store.state.projectdata);
+      });
+  }
 }
 </script>
 

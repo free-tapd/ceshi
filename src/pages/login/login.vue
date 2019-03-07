@@ -62,9 +62,28 @@ export default {
   },
   methods:{
       login(){
-          console.log(this.valid);
+          
+        // this.$store.commit('userinfo',{id:1})
           if(this.iphone!=''&&this.password!=''&&this.valid){
-              this.$router.push({path:'/task',query:{name:'任务'}});
+          console.log(this.iphone,this.password);
+            this.$http.get('http://192.168.0.108:8080/static/userdata.json')
+            .then((data)=>{
+                let res = data.data;
+                let arr = []
+                res.map((val)=>{
+                    if(val.iphone == this.iphone){
+                        this.projectList =val;
+                        this.$store.dispatch('actionsSetUserinfo',this.projectList);
+                        this.$store.dispatch('actionsSetLogin',{id:1});
+                        console.log(this.$store.state.userInfo);
+                        if(this.$store.state.userInfo.permission!=1){
+                            this.$router.push({path:'/task',query:{name:'任务'}});
+                        }else{
+                            this.$router.push({path:'/mine',query:{name:'我的'}});
+                        }
+                    }
+                })
+            });
           }
       }
   }

@@ -118,7 +118,7 @@ export default {
 }
 
 .bottomword{
-    position: absolute;
+    position: fixed;
     bottom: .2rem;
     text-align: center;
     width: 100%;
