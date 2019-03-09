@@ -22,6 +22,7 @@
     </div>
 </template>
 <script>
+import data from '../../mock/mock.js';
 export default {
   data() {
     return {
@@ -60,6 +61,9 @@ export default {
       },
     }
   },
+  mounted(){
+      this.testMock()
+  },
   methods:{
       login(){
           
@@ -85,6 +89,15 @@ export default {
                 })
             });
           }
+      },
+      //测试mock
+      testMock(){
+          this.$http.get('http://test.cn')
+				.then(res => {
+					console.log(res.data);
+					this.msg = res.data.name;
+					console.log(this.msg)
+				})
       }
   }
 }
