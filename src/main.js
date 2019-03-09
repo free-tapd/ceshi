@@ -97,7 +97,7 @@ Vue.config.productionTip = false
 
 import './assets/public.css';
 import $ from 'jquery'
-import axios from 'axios'
+import axios from './utils/http.js'
 Vue.prototype.$http = axios;
 import store from './store'
 

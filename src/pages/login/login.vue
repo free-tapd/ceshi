@@ -66,7 +66,7 @@ export default {
         // this.$store.commit('userinfo',{id:1})
           if(this.iphone!=''&&this.password!=''&&this.valid){
           console.log(this.iphone,this.password);
-            this.$http.get('http://192.168.1.24:8080/static/userdata.json')
+            this.$http.get('/static/userdata.json')
             .then((data)=>{
                 let res = data.data;
                 let arr = []
