@@ -1,5 +1,6 @@
 <template>
     <div class="registered">
+        <!-- git 上传了啊 -->
         <img class="headimg" src="http://www.saoxiankeji.com/img/logo.png" alt="">
         <div class="intbox">
             <cube-validator v-model="valid" :model="iphone" :rules="rules" :messages="messages">
