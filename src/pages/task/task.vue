@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <div class="content">
-            renwu
+            我是谢亚希
         </div>
         <Footer></Footer>
     </div>
