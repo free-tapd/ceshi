@@ -93,7 +93,7 @@ export default {
       },
       //测试mock
       testMock(){
-          this.$http.get('http://test.cn')
+          this.$http.get('http://test.cn',{name:'xyy'})
 				.then(res => {
 					console.log(res.data);
 					this.msg = res.data.name;

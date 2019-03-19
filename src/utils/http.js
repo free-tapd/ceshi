@@ -15,6 +15,10 @@ axios.defaults.baseURL = 'http://192.168.1.5:8080'
 // axios.defaults.baseURL = 'http://192.168.1.5:8080'
 
 // http request 拦截器
+axios.defaults.responseType = "json";
+axios.defaults.headers.post["Content-Type"] =
+  "application/x-www-form-urlencoded";
+axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 axios.interceptors.request.use(
   config => {
     // if (store.state.token) {

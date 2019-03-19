@@ -42,7 +42,7 @@ export default {
     methods:{
         getData(){
            let id = this.$route.query.id;
-            this.$http.get('http://192.168.0.108:8080/static/project.json',{id:id})
+            this.$http.post('/static/project.json',{id:id})
             .then((data)=>{
                 let res = data.data;
                 let arr = []
