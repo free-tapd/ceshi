@@ -93,12 +93,10 @@ Vue.use(ScrollNav)
 Vue.use(ScrollNavBar)
 Vue.use(RecycleList)
 
-Vue.config.productionTip = false
-
 import './assets/public.css';
 import $ from 'jquery'
 import axios from './utils/http.js'
-Vue.prototype.$http = axios;
+// Vue.prototype.$http = axios;
 import store from './store'
 
 Vue.config.productionTip = false

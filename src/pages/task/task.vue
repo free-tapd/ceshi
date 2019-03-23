@@ -9,11 +9,20 @@
     </div>
 </template>
 <script>
+import {mapState} from "vuex";
 import Footer from '@/components/footer'
 export default {
+
     components:{
         Footer
-    }
+    },
+    computed:{
+        ...mapState['userInfo','xyy'],
+    },
+    mounted() {
+        console.log(this.$store.state.token)
+        console.log(this.$store.state)
+    },
 }
 </script>
 <style lang="less">

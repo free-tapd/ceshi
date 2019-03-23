@@ -4,14 +4,15 @@
  */
 
 import axios from 'axios'
+import QS from "qs"
 // import store from './store/store'
 // import * as types from './store/types'
 // import router from './router'
 
 // axios 配置
 axios.defaults.timeout = 5000
-axios.defaults.baseURL = 'http://192.168.1.5:8080'
-// axios.defaults.baseURL = 'http://192.168.1.5:8080'
+// axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = '/api/'
 // axios.defaults.baseURL = 'http://192.168.1.5:8080'
 
 // http request 拦截器
@@ -56,4 +57,41 @@ axios.interceptors.response.use(
   },
 )
 
-export default axios
+/** 
+ * get方法，对应get请求 
+ * @param {String} url [请求的url地址] 
+ * @param {Object} params [请求时携带的参数] 
+ */
+export function get(url, params){    
+  return new Promise((resolve, reject) =>{        
+      axios.get(url, {            
+          params: params        
+      })        
+      .then(res => {            
+          resolve(res.data);        
+      })        
+      .catch(err => {            
+          reject(err.data)        
+      })    
+  });
+}
+/** 
+* post方法，对应post请求 
+* @param {String} url [请求的url地址] 
+* @param {Object} params [请求时携带的参数] 
+*/
+export function post(url, params) {    
+  return new Promise((resolve, reject) => {         
+      axios.post(url, QS.stringify(params))        
+      .then(res => {            
+          resolve(res.data);        
+      })        
+      .catch(err => {            
+          reject(err.data)        
+      })    
+  });
+}
+
+
+
+// export default axios
