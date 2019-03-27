@@ -1,0 +1,23 @@
+host :http://192.168.1.5:3000
+例如 ：http://192.168.1.5:3000/project/addProject
+1 添加项目接口
+ [post] project/addProject
+ 参数：protitle :项目名称
+ , member 成员（json）
+ , proimportant :重要度
+ , propriority,：优先
+  prodecription 描述
+
+  2查询项目接口
+  [post] project/searchProject
+  参数 ：protitle:string('xxxxxxxxxx')
+  ==============================================
+  注册接口
+    [post] user/register
+    参数：username,password
+    登陆接口
+    [post] user/login
+    参数：username ,password
+    检查token
+    [post] user/checkUser
+    参数 token

@@ -19,6 +19,10 @@ app.all('*', function (req, res, next) {
 }); 
 // 模拟登录注册接口
 var UserController = require('./user/UserController');
+// user路由
 app.use('/user', UserController);
+// 博客路由
+app.use('/bolg',require("./blog/blogController"));
+app.use('/project',require("./newProject/newProject"));
 
 module.exports = app;

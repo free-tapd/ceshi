@@ -17,11 +17,11 @@ export default {
         Footer
     },
     computed:{
-        ...mapState['userInfo','xyy'],
+        ...mapState(['userInfo','xyy']),
     },
     mounted() {
         console.log(this.$store.state.token)
-        console.log(this.$store.state)
+        console.log(this.userInfo)
     },
 }
 </script>

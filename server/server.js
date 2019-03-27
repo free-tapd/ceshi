@@ -41,6 +41,6 @@
 var app = require('./app');
 var port = process.env.PORT || 3000; // 启动的端口号
  
-app.listen(port, function() {
+app.listen(port,"192.168.1.5", function() {
   console.log('Express server listening on port ' + port);
 });
