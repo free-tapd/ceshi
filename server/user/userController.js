@@ -60,7 +60,9 @@ router.post('/checkUser',(req,res)=>{
       }
   })
 });
-
+router.get('/test',(req,res)=>{
+   res.send('测试成功');
+})
 router.post('/register', (req, res, next) => {
   console.log(req.body);
   const {
@@ -124,6 +126,7 @@ router.post('/login', (req, res, next) => {
     username,
     password
   } = req.body;
+  console.log(req.body)
   db.query("SELECT * FROM user_table WHERE username=? AND password=?",[username,password], (err, data) => {
     if (err) {
       throw new Error('请求错误')

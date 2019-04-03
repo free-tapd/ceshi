@@ -24,5 +24,6 @@ app.use('/user', UserController);
 // 博客路由
 app.use('/bolg',require("./blog/blogController"));
 app.use('/project',require("./newProject/newProject"));
+app.use('/global',require("./global/global"));
 
 module.exports = app;
